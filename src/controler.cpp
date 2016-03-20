@@ -9,7 +9,7 @@
 ros::Publisher pubR;
 ros::Publisher pubL;
 
-
+//comentario inutil
 void c_callback(const geometry_msgs::TwistConstPtr &tws){
 	std_msgs::Float64 vr, vl;
 
