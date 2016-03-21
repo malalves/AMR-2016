@@ -190,3 +190,9 @@ include_directories(
 
 add_executable(control src/controler.cpp)
 target_link_libraries(control ${catkin_LIBRARIES})
+
+add_executable(control32 src/control32.cpp)
+target_link_libraries(control32 ${catkin_LIBRARIES})
+
+add_executable(remote src/remote.cpp)
+target_link_libraries(remote ${catkin_LIBRARIES})

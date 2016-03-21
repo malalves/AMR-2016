@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include <std_msgs/Float64.h>
+#include <std_msgs/Float32.h>
 #include <geometry_msgs/Twist.h>
 #include <iostream>
 
@@ -11,7 +11,7 @@ ros::Publisher pubL;
 
 
 void c_callback(const geometry_msgs::TwistConstPtr &tws){
-	std_msgs::Float64 vr, vl;
+	std_msgs::Float32 vr, vl;
 
 	ROS_INFO("received twist %f %f",tws->angular.z,tws->linear.x);
 
@@ -30,8 +30,8 @@ int main(int argc, char **argv){
 
 	ros::Subscriber twistSub = control.subscribe("/twist",1,c_callback);
     
-    pubR = control.advertise<std_msgs::Float64>("/vrep/vehicle/motorRightSpeed", 1);
-    pubL = control.advertise<std_msgs::Float64>("/vrep/vehicle/motorLeftSpeed", 1);
+    pubR = control.advertise<std_msgs::Float32>("/vrep/vehicle/motorRightSpeed", 1);
+    pubL = control.advertise<std_msgs::Float32>("/vrep/vehicle/motorLeftSpeed", 1);
     
     ros::spin();
 }
